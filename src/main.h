@@ -5,6 +5,7 @@
 #include "display/display.h"
 #include "lora/lora.h"
 #include "logger/logger.h"
+#include "wifi/wifi.h"
 
 // ESP32 SPI Config
 #define PIN_SCK     18
