@@ -2,8 +2,8 @@
 #include "main.h"
 
 void loop() {
-  pollLoraTX();
-  pollLoraRX();
+  pollHTTPChat();
+  pollSerialChat();
 }
 
 void setup() {
@@ -13,14 +13,22 @@ Serial.begin(115200);
 
   delay(2000); // Pause for 2 seconds
 
+  if(!SetupDisplay()) {
+    LogInfof("Display Init failed\n");
+    for(;;); // Don't proceed, loop forever
+  }
+
+  delay(2000); // Pause for 2 seconds
+
   if(!SetupLora()) {
     LogInfof("Lora Init failed\n");
     for(;;); // Don't proceed, loop forever
   }
 
-  if(!SetupDisplay()) {
-    LogInfof("Display Init failed\n");
+  if(!SetupWifiAP()) {
+    LogInfof("WIFI Chat Init failed\n");
     for(;;); // Don't proceed, loop forever
   }
+
   LogInfof("Done All Init %d\n", (int)1);
 }

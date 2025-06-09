@@ -60,8 +60,17 @@ void pollLoraRX(){
     }
 }
 
+void pollSerialChat() {
+    #ifndef CHAT_VIA_SERIAL
+        return;
+    #endif
+
+    pollLoraTX();
+    pollLoraRX();
+}
+
 bool SetupLora() {
-    return InitLora(setFlagLora);
+    return InitLora(setFlagLora, PWR_500mW);
 }
 
 #endif
