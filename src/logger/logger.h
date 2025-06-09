@@ -41,4 +41,16 @@ inline size_t LogErrorf(const char *format, ...){
     #endif
     return 0;
 }
+inline size_t LogDebugf(const char *format, ...){
+    #ifdef DEBUG_DEBUG
+        va_list arg;
+        va_list copy;
+        va_start(arg, format);
+        va_copy(copy, arg);
+        size_t result = vprintf(format, arg);
+        va_end(arg);
+        return result;
+    #endif
+    return 0;
+}
 #endif

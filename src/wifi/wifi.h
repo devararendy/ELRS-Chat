@@ -21,23 +21,6 @@ void addToChat(String msg) {
   logIndex = min(logIndex + 1, MAX_MESSAGES);
 }
 
-// String buildChatPage() {
-// //   String html = "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='5'><meta name='viewport' content='width=device-width, initial-scale=1'><title>LoRa Chat</title>";
-//   String html = "<!DOCTYPE html><html><head><meta content='5'><meta name='viewport' content='width=device-width, initial-scale=1'><title>LoRa Chat</title>";
-//   html += "<style>body{font-family:sans-serif;background:#f0f0f0;text-align:center;padding:20px;}input{padding:10px;font-size:16px;}textarea{width:90%;height:200px;font-size:14px;}</style></head><body>";
-//   html += "<h2>ESP32 LoRa Chat</h2><form action='/' method='POST'>";
-//   html += "<input type='text' name='msg' placeholder='Enter message' required>";
-//   html += "<input type='submit' value='Send'></form>";
-//   html += "<h3>Chat Log</h3><textarea readonly>";
-//   for (int i = 0; i < MAX_MESSAGES; i++) {
-//     if (chatLog[i].length() > 0) {
-//       html += chatLog[i] + "\n";
-//     }
-//   }
-//   html += "</textarea></body></html>";
-//   return html;
-// }
-
 String buildChatPage() {
   String html = R"rawliteral(
     <!DOCTYPE html>

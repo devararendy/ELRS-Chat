@@ -6,6 +6,8 @@
 #include "lora/lora.h"
 #include "logger/logger.h"
 #include "wifi/wifi.h"
+#include "button/button.h"
+#include "stopwatch/stopwatch.h"
 
 // ESP32 SPI Config
 #define PIN_SCK     18
