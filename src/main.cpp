@@ -4,7 +4,8 @@
 void loop() {
   pollHTTPChat();
   pollSerialChat();
-}
+  pollStopwatch();
+} 
 
 void setup() {
 Serial.begin(115200);
@@ -12,6 +13,8 @@ Serial.begin(115200);
   SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI);
 
   delay(2000); // Pause for 2 seconds
+
+  SetupJoystick();
 
   if(!SetupDisplay()) {
     LogInfof("Display Init failed\n");

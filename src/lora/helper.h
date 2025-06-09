@@ -1,9 +1,10 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <RadioLib.h>
+#include "../logger/logger.h"
+#include "../hw_config.h"
 
 // SX1280 has the following connections:
-#include "hw_config.h"
 SX1280 radio = new Module(PIN_LORA_NSS, PIN_LORA_DIO1, PIN_LORA_NRST, PIN_LORA_BUSY);
 
 // or detect the pinout automatically using RadioBoards
@@ -62,7 +63,7 @@ bool InitLora(void (*callback_rx)(void), PowerLevels_e pwr=PWR_10mW) {
     return false;
   }
 
-  Serial.println(F("[SX1280] Init Done ... "));
+  LogInfof("[SX1280] Done, Pwr: %d\n", pwr);
   return true;
   // if needed, 'listen' mode can be disabled by calling
   // any of the following methods:

@@ -70,7 +70,10 @@ void pollSerialChat() {
 }
 
 bool SetupLora() {
-    return InitLora(setFlagLora, PWR_500mW);
+    #ifdef LORA_POWER
+      return InitLora(setFlagLora, LORA_POWER);
+    #endif
+      return InitLora(setFlagLora);
 }
 
 #endif

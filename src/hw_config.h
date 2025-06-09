@@ -1,6 +1,5 @@
-
-// #define MODULE_JUMPER_AION_TX
-// #define MODULE_HMSLIM_PRO_TX
+#if !defined(_HW_CONFIG_H_)
+#define _HW_CONFIG_H_
 
 #ifdef MODULE_JUMPER_AION_TX
 #define PIN_LORA_NSS        5
@@ -11,7 +10,11 @@
 #define PIN_PA_TXEN         26
 #define PIN_PA_RXEN         27
 
-#define POWER_VALUES {-18,-15,-11,-8,-4,3}
+#define POWER_VALUES        {-18,-15,-11,-8,-4,3}
+
+#define JOYSTICK            35
+#define JOYSTICK_VALUES     {870,600,230,70,0,4095} // UP, DOWN, LEFT, RIGHT, OK, UNPRESSED
+#define LED_RGB             15
 
 #endif
 
@@ -52,3 +55,5 @@ int getPowerValues(PowerLevels_e pwr) {
 
     return dBmList[pwr];
 }
+
+#endif
